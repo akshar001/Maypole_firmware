@@ -12,7 +12,13 @@ And you can upload, delete and edit files.
 You just need to change a mode.
 When you want to upload into SD card change USB mode and it will work!
 
+In example you will find two functions,
 
+# change_to_usb_mode()
 
+It will change to USB mode, So PC/System which is connected to USB-T can access SD card reader DATA directly.
 
+# change_to_sd_mode()
 
+It wil change to SD card Mode, which is when you want to upload something to SD card via ESP32 you will enable this mode,
+So ESP32 can find a SD card and write up something.
