@@ -22,3 +22,21 @@ It will change to USB mode, So PC/System which is connected to USB-T can access 
 
 It wil change to SD card Mode, which is when you want to upload something to SD card via ESP32 you will enable this mode,
 So ESP32 can find a SD card and write up something.
+
+
+How to Compile?
+
+The code have used Arduino for ESP32.
+
+So you can follow this link to setup,
+
+ESP32 with arduino
+
+-----   https://github.com/espressif/arduino-esp32
+
+Add it as a ZIP in add libraries,
+
+Upload Example,
+Sketch.
+
+BOOM!
