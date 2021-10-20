@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Dir</title>
+  
+
+    <style>
+        #header {
+
+            background-color: rgb(161, 209, 243);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            border-radius: 40px;
+            font-size: 30px;
+
+        }
+
+        th,
+        td {
+
+            border: 3px;
+            border-radius: 80px;
+            /* border-collapse: collapse; */
+        }
+
+        td {
+
+            border: 3px solid whitesmoke;
+            border-radius: 80px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        table {
+            
+            border-spacing: 5px;
+
+            
+        }
+
+
+
+
+        th,
+        td {
+            text-align: left;
+            padding: 15px;
+            margin-top: 10%;
+        }
+
+        table th {
+
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            font-size: large;
+            background-color: rgb(161, 209, 243);
+
+        }
+
+        #file-dir {
+
+            width: 100%;
+            margin-top: 100px;
+        }
+
+        .fas.fa-download {
+
+            padding-left: 20%;
+        }
+
+        .fas.fa-trash-alt:hover {
+
+            cursor: pointer;
+        }
+
+        .fas.fa-download:hover {
+
+            cursor: pointer;
+        }
+
+        .upload-sec {
+
+            margin: 40px 0px 0px 0px;
+            border: 3px solid white;
+            border-radius: 30px;
+            height: 100px;
+            background-color:rgb(161, 209, 243);
+        }
+
+        #up-file{
+
+            padding: 2.5% 0% 0% 0%;
+        }
+
+        #label{
+
+            padding-left: 33%;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <h2 id="header"> <a id="back-link">Back</a>&nbsp; My Files</h2>
+    <p id="dir"></p>
+
+
+    <div class="upload-sec">
+
+        <form  method="POST" id="uploadForm" enctype='multipart/form-data'>
+        <label for="up-file" id="label"
+            style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Upload
+            a file
+
+            <input type="file" id="up-file" name="fupload" value="">
+
+            <button type="submit" id="up-btn">Upload</button>
+
+        </label>
+        </form>
+        
+    </div>
+            
+           
+
+    <table id="file-dir">
+
+        <tr>
+            <th>Filename</th>
+            <th style="width: 20%;">Size</th>
+            <th style="width: 10%;">Download/Delete</th>
+        </tr>
+        <!-- <tr>
+            <td>file1.txt</td>
+            <td>32KB</td>
+            <td><a href="https://192.168.1.5:81/download?download=file1.txt"><button style="border-radius: 50px;"><img src="./down-arrow.svg"
+                style="width: 30px; height: 30px;" alt=""></button></a> &nbsp;<a href="/delete?name=file2.txt"><button style="border-radius: 50px;" ><img src="./trash.svg" alt="" style="width: 30px; height: 30px;"></button></a></td>
+        </tr> -->
+    </table>
+
+
+
+
+</body>
+
+<script>
+
+    
+
+    let hostip = location.host;
+    document.getElementById("uploadForm").setAttribute("action","http://"+hostip+":81/fupload");
+    document.getElementById("back-link").setAttribute("href","http://"+hostip+"/");
+  
+    setTimeout(()=>{
+
+        getFileList();
+
+    },3000);
+
+
+    
+    function createRow(filename,size)
+    {
+
+        let newRow = document.createElement('tr');
+        let data1 = document.createElement('td');
+        data1.setAttribute("name",filename);
+        data1.innerText = filename;
+        newRow.appendChild(data1);
+
+        let data2 = document.createElement('td');
+        data2.innerText = size;
+        newRow.appendChild(data2);
+
+
+        let data3 = document.createElement('td');
+        let dhref = document.createElement('a');
+        let host  = location.host;
+        dhref.setAttribute("href","http://"+host+":81/download?download="+filename);
+        let downbtn = document.createElement('button');
+        downbtn.innerText = "Download";
+        //downbtn.style.borderRadius="50px"
+       // let downsvg = document.createElement("img");
+        //downsvg.setAttribute("src","./down-arrow.svg");
+        //downsvg.style.height="30px";
+        //downsvg.style.width="30px";
+        //downbtn.appendChild(downsvg);
+        dhref.appendChild(downbtn);
+        //let icon1 = document.createElement('i');
+       //icon1.classList.add("fas");
+       //icon1.classList.add("fa-download");
+
+        //downbtn.appendChild(icon1);
+        
+        let delhref = document.createElement('a');
+        delhref.setAttribute("href","http://"+host+"/delete?delete="+filename);
+        let delbtn = document.createElement('button');
+       // delbtn.style.borderRadius="50px"
+        // let delbtnsvg = document.createElement("img");
+        // delbtn.setAttribute("src","./data/trash.svg");
+        // delbtn.style.height="30px";
+        // delbtn.style.width="30px";
+        // delbtn.appendChild(delbtnsvg);
+        delbtn.innerText = "Delete";
+        delhref.appendChild(delbtn);
+        //let icon2 = document.createElement('i');
+
+       //icon2.classList.add("fas");
+       //icon2.classList.add("fa-trash-alt");
+
+        //delbtn.appendChild(icon2);
+        data3.appendChild(dhref);
+        data3.appendChild(delhref);
+        newRow.appendChild(data3);
+
+        document.getElementById('file-dir').appendChild(newRow);
+
+
+    }
+
+    function creatdirrow(filename){
+
+        let newRow = document.createElement('tr');
+        let data5 = document.createElement('td');
+        data5.setAttribute("name",filename);
+        data5.innerText = filename;
+        newRow.appendChild(data5);
+    
+
+        let data6 = document.createElement('td');
+        let opnhref = document.createElement('a');
+        let host  = location.host;
+        opnhref.setAttribute("href","http://"+host+"/open?open="+filename);
+        let opnbtn = document.createElement('button');
+        opnbtn.innerText = "Open";
+        opnhref.appendChild(opnbtn);
+        data6.appendChild(opnhref);
+        newRow.appendChild(data6);
+        
+        let delhref = document.createElement('a');
+        delhref.setAttribute("href","http://"+host+"/delete?delete="+filename);
+        let delbtn = document.createElement('button');
+        delbtn.innerText = "Delete";
+        delhref.appendChild(delbtn);
+        data6.appendChild(delhref);
+        newRow.appendChild(data6);
+
+        
+        document.getElementById('file-dir').appendChild(newRow);
+
+        }
+
+
+
+    
+
+
+    function getFileList() {
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                console.log(this.responseText);
+                var fileList = JSON.parse(this.responseText);
+                
+                for(i=0;i<fileList.filenames.length;i++)
+                {
+                    createRow(fileList.filenames[i],fileList.sizearr[i]);
+                }
+
+                 for(i=0;i<fileList.dirnames.length;i++)
+                {
+                    creatdirrow(fileList.dirnames[i]);
+                }
+
+                 for(i=0;i<fileList.subfiles.length;i++)
+                {
+                    createRow(fileList.subfiles[i],fileList.sizearry[i]);
+                }
+
+
+            }
+        }
+
+        xhttp.open("GET", "/loadDir", true);
+        xhttp.send();
+    }
+
+    function checkMode()
+    {
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                if(xhttp.responseText=="SD_MODE")
+                {
+                    getFileList()
+                }
+            
+                else{
+
+                    let displayMode = document.createElement('h3');
+                    displayMode.innerText = "Please switch to SD Mode to view your files";
+                    displayMode.style.color = "red";
+                    document.getElementById("header").appendChild(displayMode);
+
+                }
+            }
+        }
+
+        xhttp.open("GET", "/getMode", true);
+        xhttp.send();
+
+    }
+
+
+    
+
+</script>
+
+</html>

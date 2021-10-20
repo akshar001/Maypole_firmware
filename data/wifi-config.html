@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect to WiFi</title>
+    
+    <style>
+        #header {
+
+            background-color: rgb(161, 209, 243);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+            border-radius: 20px;
+            font-size: 30px;
+        }
+        
+        .container
+        {
+            display: flex;
+            margin: 6% 0 0 26%;
+            padding-block: 13%;
+            background-image: linear-gradient(-140deg, rgb(161, 209, 243) 50%,rgba(255,255,255) 5%);
+            width: 50%;
+        
+        }
+
+        .label
+        {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <h2 id="header"> &nbsp; Connect to WiFi</h2>
+
+    <div class="container">
+    <form action="/connect-to-wifi" method="GET">
+    <label for="ssid"class="label">AP Name</label>
+    <input type="text" id="ssid" name="ssid"></input>
+    <label for="pwd" class="label" >Password</label>
+    <input type="password" id="pwd" name="pwd"></input>
+    <button id="connect" type="submit">Connect</button>
+    </div>
+    </form>
+    <h3 id="status" style="display: none;color: red;"></h3>
+
+</body>
+<script>
+
+    let btn = document.getElementById('connect');
+    let ssidField = document.getElementById('ssid');
+    let pwdField = document.getElementById('pwd');
+    let status = document.getElementById('status');
+
+
+    btn.addEventListener('click', sendWiFi);
+
+
+    function sendWiFi() {
+        let ssid = ssidField.value;
+        let pwd = pwdField.value;
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                if (xhttp.responseText === "connected") {
+                    status.innerText = "You are connected to IP";
+                    status.style.display = "block"
+                }
+                else if (xhttp.responseText == "failed") {
+                    status.innerText = "Connection Timeout";
+                    status.style.display = "block"
+
+                }
+                else if (xhttp.responseText === "not connected") {
+
+                    status.innerText = "You are not connected";
+                    status.style.display = "block"
+
+
+                }
+            }
+        }
+    }
+
+</script>
+
+</html>
