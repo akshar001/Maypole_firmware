@@ -6,6 +6,8 @@ We have tested the Maypole with latest esp32 Arduino Firmware V2.2.0.
 
 You need to copy paste two libraries from Lib folder into your Arduino lib folder.
 
+Select the ESP32 Dev Module as a board!
+
 You also need to install SimplTimer lib,
 https://github.com/jfturcot/SimpleTimer
 
