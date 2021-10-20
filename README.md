@@ -1,6 +1,29 @@
-# USB - T Example Code for working with SD CARD
+# Maypole Example Code for working with SD CARD
 
-This is a simple example code for working with USB - T.
+This is a simple example code for working with Maypole.
+
+We have tested the Maypole with latest esp32 Arduino Firmware V2.2.0.
+
+You need to copy paste two libraries from Lib folder into your Arduino lib folder.
+
+You also need to install SimplTimer lib,
+https://github.com/jfturcot/SimpleTimer
+
+After it just open the sketch and upload the firmware directly to maypole.
+
+
+
+You also need to upload spiffs data, you need to setup a spiffs upload using arduino for esp32 plugin 
+
+https://randomnerdtutorials.com/install-esp32-filesystem-uploader-arduino-ide/
+
+The data folder is already provided just upload it!
+
+After uploading everythin here is a tips for operating a maypole!
+
+
+Please visit a video https://youtu.be/VvWGthyjWB8
+
 
 You can connect to 'pen_drive' and password '12345678',
 
