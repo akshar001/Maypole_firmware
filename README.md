@@ -65,3 +65,8 @@ Upload Example,
 Sketch.
 
 BOOM!
+
+
+Discord server!
+
+https://discord.gg/BWkbF5Sg
