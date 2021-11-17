@@ -1,5 +1,14 @@
 # Maypole Example Code for working with SD CARD
 
+### Features
+
+- [ ] Browse thru file system ( Directory like structure ) 
+- [ ] OTA
+- [ ] Connect to existing WiFi network
+- [ ] Increase speed to 50KBPS when in WiFi mode
+- [ ] SD card OTA option
+
+
 This is a simple example code for working with Maypole.
 
 We have tested the Maypole with latest esp32 Arduino Firmware V2.2.0.
