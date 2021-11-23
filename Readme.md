@@ -2,9 +2,12 @@
 
 ### Features
 
-- [ ] Browse thru file system ( Directory like structure ) 
-- [ ] OTA
-- [ ] Connect to existing WiFi network
+- [X] Browse thru file system ( Directory like structure ) 
+- [X] OTA
+- [X] Connect to existing WiFi network
+- [ ] Rename the folder
+- [ ] Rename the files
+- [ ] Delte folder
 - [ ] Increase speed to 50KBPS when in WiFi mode
 - [ ] SD card OTA option
 
