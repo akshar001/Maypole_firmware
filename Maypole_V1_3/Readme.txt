@@ -7,6 +7,7 @@ In this we update maypole with functionality such as:
     4. We added the OTA functionality to update firmware and filesystem.
     5. It will now by default boot in USB mode.
     6. You can now download file from "DL", delete file from "DEL".
+    7. For uploading the file choose file in form seen in middle of My Files page and click on upload to upload it.
 
 For accessing the Folder/Files of you SD card on webserver you need to change to SD Card mode first.
 To connect to your wifi go to Connect to wifi and add your "Username" in "ssid" and "Password" in "password" field. It will connect to your network and save it for future reconnection.
