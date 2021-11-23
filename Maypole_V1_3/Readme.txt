@@ -2,7 +2,7 @@ This is the 3rd version of Maypole.
 
 In this we update maypole with functionality such as:
     1. It can now work simultaneously in both mode STA/AP.
-    2. You can now add your wifi to it and it will reconnect on boot.
+    2. You can now add your wifi to it and it can also reconnect on boot.
     3. You can now develop the filesystem in SD card.
     4. We added the OTA functionality to update firmware and filesystem.
     5. It will now by default boot in USB mode.
