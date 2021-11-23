@@ -7,7 +7,7 @@
 - [X] Connect to existing WiFi network
 - [ ] Rename the folder
 - [ ] Rename the files
-- [ ] Delte folder
+- [ ] Delete folder
 - [ ] Increase speed to 50KBPS when in WiFi mode
 - [ ] SD card OTA option
 
