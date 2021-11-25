@@ -7,6 +7,7 @@
 #include <WiFiMulti.h>
 #include <ArduinoJson.h>
 #include <Update.h>
+#include <ESPmDNS.h>
 
 WebServer server(80);
 WiFiMulti wifiMulti;
@@ -14,6 +15,7 @@ DynamicJsonDocument doc(2048);
 JsonObject obj; 
 SimpleTimer timer;
 
+const char* host = "maypole";
 String ssid = "";
 String password =  "";
 String header,body,footer;
@@ -223,6 +225,11 @@ void setup(void)
       pinMode(27,OUTPUT);     //SD RESET
       Serial.print(F("Initializing USB mode as Default..."));
       SPIFFS.begin();
+      MDNS.begin(host);
+      if (!MDNS.begin(host)) {
+        Serial.println("Error startng mDNS responder");
+      }
+      Serial.println("mDNS server started");
       change_to_usb_mode(); 
       setupWifi();
       //WiFi.softAP("pen_drive","12345678");
@@ -269,6 +276,8 @@ void setup(void)
       });
       ///////////////////////////// End of Request commands
       server.begin();
+      MDNS.addService("_http", "_tcp", 80);
+      MDNS.addServiceTxt("_http", "_tcp", "board", "ESP32");
       Serial.println("HTTP server started");
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

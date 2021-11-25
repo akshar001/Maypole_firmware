@@ -13,8 +13,9 @@ For accessing the Folder/Files of you SD card on webserver you need to change to
 To connect to your wifi go to Connect to wifi and add your "Username" in "ssid" and "Password" in "password" field. It will connect to your network and save it for future reconnection.
 For updating Firmware/Filesystem go to Update firmware and and choose bin File. After update you need to recconect to ESP module and go Homepage.
 
-For accessing the Webpage go to URL: 192.168.4.1
+For accessing the Webpage go to URL: 192.168.4.1 or http://maypole.local
 
 For Maypole as AP.
 UserName : pen_drive
 Password : 12345678
+
