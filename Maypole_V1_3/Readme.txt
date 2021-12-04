@@ -22,7 +22,7 @@ Password : 12345678
 Addresses for directly flashing bin files:
 
 boot_app0.bin                           :  0xe000 
-Maypole_V1_3.ino.bin                    :  0x10000 
+Maypole_V1_3.ino.esp32.bin                    :  0x10000 
 Maypole_V1_3.ino.bootloader.bin         :  0x1000
 Maypole_V1_3.ino.partitions.bin         :  0x8000
 Maypole_V1_3.spiffs.bin                 :  0x290000
