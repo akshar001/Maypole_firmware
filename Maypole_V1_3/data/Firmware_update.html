@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>MAYPOLE</title>
   <style>
     .head{
@@ -13,10 +14,6 @@
       text-align: center;
          }
 
-    .Forms {
-        text-align: center;
-        font-size: 100%
-    }
     a:link, a:visited a:hover a:active {
       color: red;
       padding: 15px 25px;
@@ -25,6 +22,11 @@
       font-family: Georgia;
       text-align: center;
 
+    }
+
+    .Forms {
+        text-align: center;
+        font-size: 100%
     }
 
   </style>
@@ -43,7 +45,7 @@
 
 <div class = "Forms">
      <form method='POST' action='/update' enctype='multipart/form-data'>
-         Firmware Update:<br>
+         Firmware:<br>
          <input type='file' accept='.bin,.bin.gz' name='firmware'>
          <input type='submit' value='Update Firmware'>
      </form><br></br>
@@ -52,7 +54,6 @@
          <input type='file' accept='.bin,.bin.gz,.image' name='filesystem'>
          <input type='submit' value='Update FileSystem'>
      </form>
-     
 </div>
 
 </body>

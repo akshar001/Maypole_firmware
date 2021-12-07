@@ -250,7 +250,9 @@ void setup(void)
         String page = file.readString();
         file.close();
         page.replace(F("<% version %>"),Version);
+        int pagesize = page.length();
         server.sendHeader("Connection", "close");
+        server.setContentLength(pagesize);
         server.send(200, "text/html", page);
       });
       server.on("/update", HTTP_POST, []() {
@@ -335,12 +337,15 @@ void ConnectToWifi()
       printFile("/wificred.json");
       message.concat(F("<script>location.replace(/ConnectToWifi)</script>"));
     }
-    server.setContentLength(CONTENT_LENGTH_UNKNOWN); 
+    server.sendHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+    server.sendHeader("Pragma", "no-cache"); 
     File file = SPIFFS.open("/Wifinetwork.html");
     String page = file.readString();
     file.close();
     page.replace(F("<% version %>"),Version);
     page.replace(F("<% script %>"),message);
+    int pagesize = page.length();
+    server.setContentLength(pagesize);
     server.send(200, "text/html", "" ); 
     server.sendContent(page);
     server.send(200, "text/html", "");
@@ -675,6 +680,10 @@ void SendHTML_Footer()
   Serial.println("Welcome to Footer");
   File file = SPIFFS.open("/Footer.html");
   footer = file.readString();
+  String ip_address = WiFi.localIP().toString();
+  String wifi_ssid = WiFi.SSID();
+  footer.replace(F("<% ssid %>"), wifi_ssid.c_str());
+  footer.replace(F("<% ip %>"), ip_address.c_str());
   footer.replace(F("<% version %>"), Version);
   String page = "";
   if(is_from_my_files)
