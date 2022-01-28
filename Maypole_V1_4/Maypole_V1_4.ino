@@ -208,7 +208,7 @@ void change_to_sd_mode()
     digitalWrite(26,HIGH);
     delay(20);
     digitalWrite(25,LOW);  //BUffer IC LOW 
-    while(!SPIFFS.begin()){
+    while(!SD.begin()){
       Serial.println("SD Card not properly created");
     }
     SD_present = true;
