@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+	<title>MAYPOLE</title>
+  <style>
+    .head{
+      width:  100%;
+      background-color: Dodgerblue; 
+      color: black;
+      padding: 2px ;
+      border-radius: 30px;
+      font-size: 1.4vw;
+      text-align: center;
+         }
+
+    a:link, a:visited a:hover a:active {
+      color: red;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 22px;
+      font-family: Georgia;
+      text-align: center;
+
+    }
+
+    .Forms {
+    	text-align: center;
+    	font-size: 100%
+	}
+
+	label {
+		text-align: right;
+		display: inline-block;
+		font-size: 120%;
+	    margin: 10px;
+	    padding: 5px;
+	}
+	input[type="text"],input[type="password"] {
+	    border-radius: 5px;
+	    border-radius: 5px;
+	    border-radius: 5px;
+	    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
+	    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
+	    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.2);
+
+	    padding: 5px;
+	}
+
+  </style>
+</head>
+
+<body>
+
+<div class="head">
+	<h1>
+       <b style = "margin: 0 0 0 15%">MayPole</b>
+       <a href ="/"><img src = "home.png" alt = "Mode" style = "width:3%; height:3%; float:right; margin: 0.5% 10% 0 0;"></a>
+    </h1>
+ </div>
+
+<br>
+
+<div class = "Forms">
+	<form id = "myForm" method ="POST" action="/network" enctype="application/x-www-form-urlencoded" >
+	  <label for="ssid"><b>SSID:</b></label>
+	  <input type="text" id="ssid" name="ssid" autocomplete="off" ><br>
+	  <label for="password"><b>PASSWORD:</b></label>
+	  <input type="password" id="password" name="password" autocomplete="off" ><br><br>
+	  <input type="submit" value="Submit">
+	</form> 
+</div>
+
+</body>
+
+<br>
+
+<div class="head">
+<footer>
+  <p style ="text-align:center"><a href= "http://vicharak.in">Author: VICHARAK</a><b style= "margin: 0.5% 0 0 20%;">Version:<% version %></b>
+</p>
+</footer>
+</div>
+<% script %>
+</html>
