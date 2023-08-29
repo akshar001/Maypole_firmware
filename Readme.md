@@ -1,84 +1,166 @@
-# Maypole Example Code for working with SD CARD
+# **Maypole: Your All-in-One Smart Tool for Seamless File Management, Online Connectivity, and Remote Software Updates.**
 
-### Features
+## **Maypole Setup Guide: Getting Familiar with its Applications**
 
-- [X] Browse thru file system ( Directory like structure ) 
-- [X] OTA
-- [X] Connect to existing WiFi network
-- [ ] Rename the folder
-- [ ] Rename the files
-- [ ] Delete folder
-- [ ] Increase speed to 50KBPS when in WiFi mode
-- [ ] SD card OTA option
+Welcome to the world of Maypole, a versatile device designed to simplify various tasks including file management and connectivity. This guide will walk you through the process of setting up Maypole by obtaining its source code from GitHub, either through cloning the repository or downloading it as a ZIP archive.
 
+## **Table of contens**
 
-This is a simple example code for working with Maypole.
+1.  **Overview of the Maypole's Capabilities**
 
-We have tested the Maypole with latest esp32 Arduino Firmware V2.2.0.
+2.  **Setup Guide**
 
-You need to copy paste two libraries from Lib folder into your Arduino lib folder.
+3.  **Connecting to the Maypole Device**
 
-Select the ESP32 Dev Module as a board!
+4.  **Modes of Operation**
 
-You also need to install SimplTimer lib,
-https://github.com/jfturcot/SimpleTimer
+5.  **Connecting Maypole to a New Wi-Fi Network**
 
-After it just open the sketch and upload the firmware directly to maypole.
+6.  **Performing Firmware Update via User Interface**
 
+## **1. Overview of the Maypole's Capabilities: What is Maypole?**
 
+The Maypole device is like a smart tool made using a special computer chip called ESP32. It can do different things, kind of like a multi-purpose tool. You can use it to easily work with your files, connect it to the internet through WiFi, and even update its software from far away. This device is made to make tasks like storing and managing files simpler and more convenient for you.
 
-You also need to upload spiffs data, you need to setup a spiffs upload using arduino for esp32 plugin 
+## **2. Setup Guide**
 
-https://randomnerdtutorials.com/install-esp32-filesystem-uploader-arduino-ide/
+### **Accessing the GitHub Repository**
 
-The data folder is already provided just upload it!
+- Open your preferred web browser and navigate to the Maypole GitHub repository: <https://github.com/akshar001/Maypole_firmware>
 
-After uploading everythin here is a tips for operating a maypole!
+### **Cloning the Repository**
 
+1. Open your terminal or command prompt.
 
-Please visit a video https://youtu.be/VvWGthyjWB8
+2. Clone the Maypole repository from GitHub by executing the following command:
 
+     ```git clone https://github.com/akshar001/Maypole_firmware.git```
 
-You can connect to 'pen_drive' and password '12345678',
+### **Downloading as ZIP**
 
-Type
+1. Visit the Maypole repository on GitHub at the URL: <https://github.com/akshar001/Maypole_firmware>
 
-192.168.4.1 in browser,
-And you can upload, delete and edit files.
+2. Click on the green "Code" button on the top right of the repository page.
 
-You just need to change a mode.
-When you want to upload into SD card change USB mode and it will work!
+3. Select "Download ZIP" from the dropdown menu.
 
-In example you will find two functions,
+4. Save the ZIP file to your desired location on your computer.
 
-# change_to_usb_mode()
+### **Installing Required Libraries**
 
-It will change to USB mode, So PC/System which is connected to USB-T can access SD card reader DATA directly.
+To start with Maypole you need some arduino libraries.
 
-# change_to_sd_mode()
+1. **SimpleTimer Lib:** <https://github.com/jfturcot/SimpleTimer>
 
-It wil change to SD card Mode, which is when you want to upload something to SD card via ESP32 you will enable this mode,
-So ESP32 can find a SD card and write up something.
+2. **ArduinoJson Lib:** <https://github.com/bblanchon/ArduinoJson>
 
+3. **Update Lib:** <https://github.com/espressif/arduino-esp32/tree/master/libraries/Update/src>
 
-How to Compile?
+### **Running the Project**
 
-The code have used Arduino for ESP32.
+- Launch the Arduino IDE and open the Maypole project that you either cloned from the GitHub repository or downloaded as a ZIP file. This project contains the necessary code and configurations to operate the Maypole device. Once you have the project open in the Arduino IDE, you can proceed to upload the firmware directly to the Maypole device.
 
-So you can follow this link to setup,
+- Additionally, don't forget to upload the SPIFFS (SPI Flash File System) data. Once you've successfully uploaded the firmware, you'll need to configure and upload the SPIFFS data using the Arduino for ESP32 plugin. This process allows you to upload files and data that the Maypole device will utilize.
 
-ESP32 with arduino
+- For detailed instructions on how to set up SPIFFS upload using the Arduino IDE, you can follow the guide provided at: <https://randomnerdtutorials.com/install-esp32-filesystem-uploader-arduino-ide/>
 
------   https://github.com/espressif/arduino-esp32
+- You'll find the necessary data folder included in the Maypole project repository. This folder contains essential files that the Maypole device requires for its functionalities. By uploading this data using the SPIFFS uploader, you'll ensure that the device has access to the required resources for seamless operation.
 
-Add it as a ZIP in add libraries,
+## **3. Connecting to the Maypole Device**
 
-Upload Example,
-Sketch.
+- After completing the uploading process, here's a helpful tip for effectively operating the Maypole device:
 
-BOOM!
+- For a comprehensive visual guide on operating the Maypole device and making the most of its features, we recommend watching this informative video: <https://youtu.be/VvWGthyjWB8>. This video provides step-by-step instructions and demonstrations that will enhance your understanding of how to interact with the Maypole device and utilize its functionalities to the fullest.
 
+- ### **Steps to follow**
 
-Discord server!
+  To establish a connection with the Maypole device using your smartphone or computer, follow these straightforward steps:
 
-https://discord.gg/BWkbF5Sg
+1. ### **Network Connection**
+
+      - On your smart device (phone or PC), access the Wi-Fi settings. Locate and select the network named ```'pen_drive'```. Connect to this network and enter the password ```'12345678'```.
+
+2. ### **Web Browser Access**
+
+      - Open a web browser on your device.
+
+3. ### **Entering IP Address**
+
+      - In the address bar of your web browser, type: ```192.168.4.1```.
+
+4. ### **Interaction with Maypole**
+
+      - Press Enter or Go in your browser. Your browser will establish a connection with the Maypole device. Initially, the device will be in USB mode by default. You'll see options such as ```Switch to SD mode```, ```My Files```, ```Connect to WiFi```, and ```Update Firmware```.
+
+## 4. **Maypole Device Mode Operations**
+
+- The Maypole device offers two distinct modes of operation: USB Mode and SD Card Mode. Each mode serves specific purposes and provides unique ways to manage and interact with files. Let's explore these modes in detail:
+
+ 1. **USB Mode:**
+    - **Description:** In USB Mode, the Maypole device emulates a USB storage device that you would typically connect to a computer.
+
+    - **Usage:** To utilize this mode, connect the Maypole device to your computer using a USB cable.
+
+    - **Functionality:** Once connected, your computer recognizes the Maypole device as a standard storage unit, similar to a USB flash drive. This allows you to seamlessly transfer files to and from the device using your computer's file explorer.
+
+    - **Benefit:** USB Mode simplifies file management by enabling direct drag-and-drop actions without the need for additional software.
+
+ 2. **SD-card Mode:**
+
+    - **Description:** SD Card Mode empowers the Maypole device to interact with an external SD card.
+
+    - **Purpose:** This mode is particularly handy when managing files on an SD card without requiring a direct computer connection.
+
+    - **Activation:** To switch to SD Card Mode, access the Maypole device's user interface via a web browser.
+
+    - **Transition:** Within the interface, locate an option or button to activate SD Card Mode.
+
+    - **Functionality:** Once enabled, the Maypole device takes over the management of files on the connected SD card. You can perform tasks such as uploading, deleting, or editing files through the interface.
+
+    - **Advantage:** SD Card Mode offers remote file management capabilities, making it convenient for tasks that don't require direct computer involvement.
+
+- In SD Card Mode, the Maypole device facilitates seamless file management with the following operations:
+     1. **File Upload:**
+        - Easily transfer files from your computer to the Maypole device.
+        - Utilize a user-friendly interface for selecting and uploading files.
+        - Uploaded files are securely stored on the device's storage.
+     2. **File Download:**
+        - Request and download files stored on the Maypole device.
+        - Access files remotely without direct device interaction.
+        - Retrieve files conveniently through the device's interface.
+     3. **File Deletion:**
+        - Request deletion of specific files from the device's storage.
+        - Remove unnecessary files to maintain an organized storage space.
+        - Streamline file management within the Maypole device.
+
+- These file operations empower users to efficiently manage their files in SD Card Mode, enhancing accessibility, organization, and control over stored content.
+
+## **5. Connecting Maypole to a New Wi-Fi Network**
+
+- ### **Entering Network Details**
+  - Within the user interface, locate the ```"Connect to Wi-Fi"``` section. Here, you'll discover fields to input the SSID (network name) and password of the new Wi-Fi network.
+
+- ### **Submission**
+  - Provide accurate SSID and password for the desired Wi-Fi network. After entering the required information, click the ```"Submit"``` button.
+
+- ### **New IP Address***
+    - The Maypole device will use the provided SSID and password to establish a connection with the chosen Wi-Fi network. Upon successful connection, the Maypole will receive a new IP address on the selected network. This new IP address enables remote access and management of the Maypole device from any device connected to the same Wi-Fi network. Use the provided IP address to access the Maypole's user interface via a browser, facilitating convenient control and interaction.
+
+- By following these steps, you can effortlessly connect the Maypole device to a new Wi-Fi network, enhancing its accessibility and allowing remote control and management.
+
+## **6. Performing Firmware Update via User Interface (OTA)**
+
+- The Maypole device offers an Over-The-Air (OTA) update mechanism, allowing users to upload new firmware wirelessly after making code changes and compiling in the Arduino IDE. This feature eliminates the need for physical connections and simplifies the process of updating the device's firmware.
+
+- Here's how OTA works with the Maypole device:
+    - **Initiating the OTA Update:** Access the Maypole device's user interface through your browser, typically by entering its IP address. Look for an option related to "Firmware Update" or "Update Firmware."
+
+    - **Selecting the New Firmware:** Once in the update section, you'll be prompted to select the updated firmware file that you've compiled in the Arduino IDE. Ensure you have the new firmware file accessible on your computer or device.
+
+    - **Initiating the Update:** Trigger the OTA update process by clicking the appropriate button or link provided in the interface The Maypole device will receive the new firmware wirelessly from your connected device.
+
+    - **Monitoring the Progress:** As the update progresses, you'll likely see indicators or progress bars showing the advancement of the update.
+
+    - **Automatic Restart:** After successfully receiving and installing the new firmware, the Maypole device will automatically restart to apply the update.
+
+- The OTA update capability in the Maypole device streamlines the firmware update process, enabling users to make changes, compile, and wirelessly update the device's firmware without the need for physical intervention. This feature contributes to the device's ease of use and flexibility in adapting to new functionalities or improvements.
