@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+</html>
+<body>
+<br>
+<div class = "head">
+     <h2>
+      <b>My Files</b>
+     </h2>
+  </div>
+
+  <p style = "background-color: Dodgerblue; border-radius: 30px; text-align: center; font-size: 120%; padding: 2px ;">
+    <b>Current Directory: <% Directory %></b>
+  </p>
+
+  <form method="POST" action="/upload" enctype="multipart/form-data" style = "text-align: center">
+    <input type="file" name="data"/>
+    <input type="submit" name="upload" value="Upload" title="Upload File">
+  </form></br>
+  
+  <table id = "myFiles" style="width:100%">
+    <tr>
+      <th style = "width: 50%">Filename</th>
+      <th style = "width: 30%">Size</th>
+      <th style = "width: 50%">Download/Delete</th>
+    </tr>
+    <% files %>
+  </table>
+    
+</body>
+</html>
